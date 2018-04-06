@@ -34,7 +34,7 @@ class App extends React.Component{
 
   render () {
     //log each time it renders
-    console.log('rendering');
+    console.log(`rendering`);
     return (
       <div>
         <h1>
@@ -46,4 +46,4 @@ class App extends React.Component{
 
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById(`app`));

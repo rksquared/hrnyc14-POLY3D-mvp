@@ -1,3 +1,4 @@
 module.exports = {
-  TOKEN: 'YOUR TOKEN HERE'
+  TOKEN: `YOUR TOKEN HERE`,
+  MLAB: `YOUR CONNECTION HERE`,
 };
