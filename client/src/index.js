@@ -26,7 +26,7 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    // this.fetchObjects();
+    this.fetchObjects();
 
     //log the results of first fetch from server, ADD THIS
     // console.log(`fetching objects after app mounts to dom`)
