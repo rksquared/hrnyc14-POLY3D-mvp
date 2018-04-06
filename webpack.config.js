@@ -1,21 +1,21 @@
-const path = require('path');
-const SRC_DIR = path.join(__dirname, 'client/src');
-const DIST_DIR = path.join(__dirname, 'client/dist');
+var path = require('path');
+var SRC_DIR = path.join(__dirname, '/client/src');
+var DIST_DIR = path.join(__dirname, '/client/dist');
 
-module.exports =  {
+module.exports = {
   entry: `${SRC_DIR}/index.js`,
   output: {
-    filename: `bundle.js`,
-    path: DIST_DIR,
+    filename: 'bundle.js',
+    path: DIST_DIR
   },
-  module: {
-    loaders: [
+  module : {
+    loaders : [
       {
-        test: /\.js?/,
-        include: SRC_DIR,
-        loader: `babel-loader`,
+        test : /\.js?/,
+        include : SRC_DIR,
+        loader : 'babel-loader',
         query: {
-          presets: [`react`, `es2015`]
+          presets: ['react', 'es2015']
         }
       }
     ]
