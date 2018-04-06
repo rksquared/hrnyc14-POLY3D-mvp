@@ -4,6 +4,9 @@ const bodyParser = require(`body-parser`);
 //env variables
 const port = process.env.PORT || 5005;
 
+//instantiate express application
+const app = express();
+
 //MIDDLEWARE SETUP
 //set up express static file server
 app.use(express.static(`${__dirname}/../client/dist`));
@@ -29,6 +32,6 @@ app.get(`/objects`, (req, res) => {
 
 
 //INIT SERVER
-app.listen(post, () => {
+app.listen(port, () => {
   console.log(`server listening on post ${port}`);
 })
