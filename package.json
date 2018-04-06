@@ -1,0 +1,19 @@
+{
+  "name": "hrnyc14-poly3d-mvp",
+  "version": "1.0.0",
+  "description": "Basic/MVP 3D Object fetcher consuming Google's POLY API with CRUD functionality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rksquared/hrnyc14-POLY3D-mvp.git"
+  },
+  "author": "rksquared",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rksquared/hrnyc14-POLY3D-mvp/issues"
+  },
+  "homepage": "https://github.com/rksquared/hrnyc14-POLY3D-mvp#readme"
+}
