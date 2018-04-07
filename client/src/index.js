@@ -85,7 +85,7 @@ class App extends React.Component{
                 imgSRC={asset.thumbnail.url} 
                 name={asset.displayName} 
                 objLink={asset.format[0].root.url} 
-                mtlLink={asset.format[0].resources.url}
+                mtlLink={asset.format[0].resources[0].url}
                 key={asset._id}
                 desc={asset.description}
                 creator={asset.creator}  

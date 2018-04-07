@@ -6,8 +6,8 @@ const object3DAsset = ({imgSRC, name, objLink, mtlLink, desc, creator, key}) => 
     <div key={key}>
       <img src={imgSRC} style={{minWidth: `40px`}}/>
       <div>Name: {name} | Creator: {creator} | Description: {desc}</div>
-      <a href={objLink}><button>Download the OBJ file</button></a>
-      <a href={mtlLink}><button>Download the MTL file</button></a>
+      <a href={objLink} download><button>Download the OBJ file</button></a>
+      <a href={mtlLink} download><button>Download the MTL file</button></a>
     </div>
   );
 }
