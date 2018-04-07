@@ -12,6 +12,7 @@ class App extends React.Component{
     super(props);
     this.state = {
       objectList: [],
+      filterParam: ``,
       queryOpts: [`animals`, `architecture`, `art`, `food`, `nature`, `objects`, `people`, `scenes`, `technology`, `transport`]
     };
     
@@ -19,17 +20,18 @@ class App extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
 
-  fetchObjects() {
+  fetchObjects(filterParam) {
     //log the execution of the fetch
-    console.log(`fetching objects from server @ route "objects"`)
+    console.log(`fetching (with POST) objects from server @ route "retrieveObjects"`)
 
-    Axios.get(`objects`)
+    Axios.post(`retrieveObjects`, {filter: filterParam})
       .then(({data}) => {
 
         console.log(`successful get request! recieved these models: ${JSON.stringify(data)}`);
         
         this.setState({
-          objectList: data
+          objectList: data,
+          filterParam: data[0].category
         });
         
         console.log(`objectList in state: ${JSON.stringify(this.state.objectList)}`);
@@ -43,20 +45,20 @@ class App extends React.Component{
     
     console.log(`querying POLY for ${target.value} models`);
     
-    Axios.post(`objects`, {topic: target.value})
+    Axios.post(`storeObjects`, {topic: target.value})
       .then((data) => {
-        console.log(`has the post succeeded? ${data}`);
-        this.fetchObjects();
+        console.log(`has the post succeeded? ${JSON.stringify(data)}`);
+        this.fetchObjects(target.value);
       })
       .catch((err) => {
         console.error(`fetch is broken with error: ${err}`);
-      })
+      });
     
   }
 
   componentDidMount() {
     //initialize application state with objects from DB
-    this.fetchObjects();
+    this.fetchObjects(this.state.filterParam);
 
     //log the results of first fetch from server
     console.log(`Application component mounted!`);

@@ -37,22 +37,26 @@ app.use((req, res, next) => {
 
 
 //ROUTING
-//get @ `/objects`
-app.get(`/objects`, (req, res) => {
-  console.log(`GET request @ "/objects" route recieved`);
+//post @ `/retrieveObjects ---> is actually a fetching operation, with a sortParam passed down in body`
+app.post(`/retrieveObjects`, (req, res) => {
+  console.log(`POST request @ "/retrieveObjects" route recieved, retrieving a sorted query from DB`);
+  console.log(`the parameter we will sort by: ${req.body.filter}`);
 
-  retrieveObjects()
-    .then((data) => res.status(200).send(JSON.stringify(data)))
+  retrieveObjects(req.body.filter)
+    .then((data) => {
+      console.log(`data in the retrieveObjects POST success method ${data}`)
+      res.status(200).send(JSON.stringify(data))})
     .catch((err) => console.error(`experiencing difficulties retrieving objects from DB ${err}`));
 
 });
 
-//post @ `/objects`
-app.post(`/objects`, (req, res) => {
-  console.log(`POST request @ "/objects" route recieved with payload: ${req.body.topic}`);
+//post @ `/storeObjects`
+app.post(`/storeObjects`, (req, res) => {
+  console.log(`POST request @ "/storeObjects" route recieved with payload: ${req.body.topic} for Poly API or DB`);
+
 
   polyRequest(req.body.topic);
-
+  
   res.status(201).send(`ROMA VICTA`);
 
 });

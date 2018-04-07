@@ -14,9 +14,13 @@ const getPolyObjects = (topic) => {
     let results = JSON.parse(body).assets;
     console.log(`parsed payload from POLY request: ${results}`);
     
-    results.forEach((object) => {
-      save(object);
-    });
+    if (results) {
+      results.forEach((object) => {
+        object.category = topic;
+        console.log('obj category saved?', object.category);
+        save(object);
+      })
+    }
 
   });
 }
